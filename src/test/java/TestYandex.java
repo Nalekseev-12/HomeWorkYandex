@@ -1,6 +1,7 @@
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -125,6 +126,10 @@ public class TestYandex {
         WebElement os1 = driver.findElement(By.xpath("//*[text()[contains(.,'Операционная система')]]"));
         Assert.assertFalse(os1.isDisplayed()); //Проверили что пункт Операционная система не отображается
         logger.info("Проверили что не отображается пункт Операционная система");
+    }
+    @After
+    public void quit() {
+        driver.quit();
     }
 }
 
